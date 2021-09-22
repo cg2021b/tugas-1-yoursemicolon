@@ -15,11 +15,11 @@
 <img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/atas-depan.jpg" alt="depan-atas" width="400">
 
 ### Sudut Pandang Kanan Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kanan-depan.jpg" alt="kanan-atas" width="400">
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kanan-atas.jpg" alt="kanan-atas" width="400">
 
 ### Sudut Pandang Kiri Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kiri-depan.jpg" alt="kiri-atas" width="400">
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kiri-atas.jpg" alt="kiri-atas" width="400">
 
 ### Sudut Pandang Belakang Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/belakang-depan.jpg" alt="belakang-atas" width="400">
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/belakang-atas.jpg" alt="belakang-atas" width="400">
 
