@@ -11,15 +11,17 @@
 ## Hasil Pengerjaan
 * Benda yang berawalan huruf B, G atau L: **Buku Sains**
 
-### Sudut Pandang Depan Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/atas-depan.jpg" alt="depan-atas" width="400">
+### Bagian Depan Atas
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/depan.jpg" alt="depan-atas" width="400">
 
-### Sudut Pandang Kanan Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kanan-atas.jpg" alt="kanan-atas" width="400">
+### Bagian Belakang Atas
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/belakang.jpg" alt="belakang-atas" width="400">
 
-### Sudut Pandang Kiri Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kiri-atas.jpg" alt="kiri-atas" width="400">
+### Bagian Kanan Atas
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kanan.jpg" alt="kanan-atas" width="400">
 
-### Sudut Pandang Belakang Atas
-<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/belakang-atas.jpg" alt="belakang-atas" width="400">
+### Bagian Kiri Atas
+<img src="https://github.com/cg2021b/tugas-1-yoursemicolon/blob/main/kiri.jpg" alt="kiri-atas" width="400">
+
+
 
