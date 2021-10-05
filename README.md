@@ -9,7 +9,9 @@
 3. Ambil foto benda tersebut dari empat sudut pandang yang berbeda: kanan atas, kiri atas, belakang atas, depan atas (sudut kemiringan bebas).
 
 ## Hasil Pengerjaan
-* Benda yang berawalan huruf B, G atau L: **Buku Sains**
+* Benda yang berawalan huruf B, G atau L: **Gelas**
+
+### Tampilan WebGL
 
 ### Bagian Depan Atas
 <img src="img/depan.jpg" alt="depan-atas" width="400">
