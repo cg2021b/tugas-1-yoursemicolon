@@ -5,8 +5,8 @@ canvas {
     transform: translate(-50%, -50%);   
     width: 700px;
     height: 800px;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    /* margin-top: 150px; */
+    /* margin-bottom: 150px; */
     /* border: 1px solid; */
     background-color: antiquewhite;
 }
