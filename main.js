@@ -2,13 +2,26 @@ function main() {
     var canvas = document.getElementById("myCanvas");
     var gl = canvas.getContext("webgl");
 
-    /**
-     * Mendefinisikan titik
-     * A (-0.5, 0.5)
-     * B (0.5, 0.5)
-     * C (0.5, -0.5)
-     * D (-0.5, -0.5)
-     */
+    for(var i = 0; i<=180; i += 1)
+    {
+        var j = (i + 270) * Math.PI / 180;
+        var k = (i + 271) * Math.PI / 180;
+        var vert1 = [
+            Math.sin(j) * 0.175 - 0.5 , Math.cos(j) * 0.05 + 0.5, 0.701, 0.922, 0.541,
+        ];
+    
+        var vert2 = [
+            -0.5, 0.4, 0.701, 0.922, 0.541,
+        ];
+
+        var vert3 = [
+            Math.sin(k) * 0.175 - 0.5 , Math.cos(k) * 0.05 + 0.5, 0.701, 0.922, 0.541,
+        ];
+
+        glass_1 = glass_1.concat(vert1);
+        glass_1 = glass_1.concat(vert2);
+        glass_1 = glass_1.concat(vert3);
+    }
 
     // definisikan titik dan warna
     var vertices = [
@@ -33,7 +46,7 @@ function main() {
         uniform float uChange; // mengubah posisi x, y disesuaikan dgn berapa banyak nilai uChange berubah
         void main() {
             gl_Position = vec4(aPosition + uChange, 0.0, 1.0);
-            vColor = aColor
+            vColor = aColorl;
         }
         `;
 
@@ -47,9 +60,9 @@ function main() {
 
     // membuat dot di GPU
     var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-    gl.ShaderSource(vertexShader, vertexShaderSource);
-    var fragmentShader = fl.createShader(gl.FRAGMENT_SHADER);
-    gl.ShaderSource(fragmentShader, fragmentShaderSource);
+    gl.shaderSource(vertexShader, vertexShaderSource);
+    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fragmentShader, fragmentShaderSource);
 
     // compile shader
     gl.compileShader(vertexShader);
@@ -73,17 +86,21 @@ function main() {
     gl.enableVertexAttribArray(aColor);
 
     // menggambar
+    var speedRaw = 1;
+    var speed = speedRaw/600;
     var change = 0;
     var uChange = gl.getUniformLocation(shaderProgram, "uChange");
     function render() {
-        change += 1;
+        if(change >= 0.5 || change <= -0.5) speed = -speed;
+        change += speed;
         gl.uniform1f(uChange, change);
 
         gl.clearColor(1.0, 1.0, 1.0, 1.0);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
         gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
-        setInterval(render, 1000/60); //60fps
+        // setInterval(render, 1000/60); //60fps
     }
-    setInterval(render, 1000/60);
+    // setInterval(render, 1000/60);
+    render();
 }
