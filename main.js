@@ -2,26 +2,31 @@ function main() {
     var canvas = document.getElementById("myCanvas");
     var gl = canvas.getContext("webgl");
 
+    var left_glass = [];
+
     for(var i = 0; i<=180; i += 1)
     {
         var j = (i + 270) * Math.PI / 180;
         var k = (i + 271) * Math.PI / 180;
-        var vert1 = [
-            Math.sin(j) * 0.175 - 0.5 , Math.cos(j) * 0.05 + 0.5, 0.701, 0.922, 0.541,
+        
+        var vertex1 = [
+            Math.sin(j) * 0.175 - 0.5, // x
+            Math.cos(j) * 0.05 + 0.5, // y
+            0.16, 0.62, 0.96 // color
         ];
     
-        var vert2 = [
-            -0.5, 0.4, 0.701, 0.922, 0.541,
+        var vertex2 = [
+            -0.5, 0.4, // x, y
+            0.16, 0.62, 0.96 // color
         ];
 
-        var vert3 = [
-            Math.sin(k) * 0.175 - 0.5 , Math.cos(k) * 0.05 + 0.5, 0.701, 0.922, 0.541,
+        var vertex3 = [
+            Math.sin(k) * 0.175 - 0.5, // x
+            Math.cos(k) * 0.05 + 0.5, // y 
+            16, 0.62, 0.96 // color
         ];
 
-        glass_1 = glass_1.concat(vert1);
-        glass_1 = glass_1.concat(vert2);
-        glass_1 = glass_1.concat(vert3);
-    }
+        left_glass = left_glass.concat(vertex1, vertex2, vertex3)
 
     // definisikan titik dan warna
     var vertices = [
