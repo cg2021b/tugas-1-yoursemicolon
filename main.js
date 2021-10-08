@@ -2,15 +2,14 @@ function main() {
     var canvas = document.getElementById("myCanvas");
     var gl = canvas.getContext("webgl");
 
-    
+    // define vertex and color
+    var left = [];
+    left = leftGlass();
 
-    // definisikan titik dan warna
-    var vertices = [
-        -0.5, 0.5, 1.0, 0.0, 0.0,  //Titik A
-        0.5, 0.5, 0.0, 1.0, 0.0,  // Titik B
-        0.5, -0.5, 0.0, 1.0, 0.0,  // Titik C
-        -0.5, -0.5, 0.0, 0.0, 1.0  // Titik D
-    ];
+    var right = [];
+    right = rightGlass();
+
+    var vertices = [...left, ...right];
 
     // buffer sebagai linkedlist
     // tempat penyimpanan vertex sementara sebelum digambar oleh GPU
@@ -25,6 +24,7 @@ function main() {
         attribute vec3 aColor; // vektor 3 dimensi untuk rgb
         varying vec3 vColor; // output dari vertex shader yang menjadi input di fragment shader
         uniform float uChange; // mengubah posisi x, y disesuaikan dgn berapa banyak nilai uChange berubah
+
         void main() {
             gl_Position = vec4(aPosition + uChange, 0.0, 1.0);
             vColor = aColorl;
@@ -34,6 +34,7 @@ function main() {
     var fragmentShaderSource = `
         precision mediump float;
         varying vec3 vColor;
+
         void main() {
             gl_FragColor = vec4(vColor, 1.0);
         }
@@ -48,6 +49,11 @@ function main() {
     // compile shader
     gl.compileShader(vertexShader);
     gl.compileShader(fragmentShader);
+    
+    // error message
+    if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(fragmentShader));
+    }
 
     // membuat program
     var shaderProgram = gl.createProgram();
@@ -56,32 +62,56 @@ function main() {
 
     // jadikan satu package
     gl.linkProgram(shaderProgram);
-    gl.useProgram(shaderProgram);
 
-    // mengumpul perubahan posisi
-    var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
+    // error message
+    if(!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+        var info = gl.getProgramInfoLog(shaderProgram);
+        throw `Could not compile WebGL program. \n\n ${info}`
+    }
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    var aPosition = gl.getAttribLocation(shaderProgram, `aPosition`);
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 5*Float32Array.BYTES_PER_ELEMENT, 0);
     gl.enableVertexAttribArray(aPosition);
-    var aColor = gl.getAttribLocation(shaderProgram, "aColor");
-    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, 5*Float32Array.BYTES_PER_ELEMENT, 2*Float32Array.BYTES_PER_ELEMENT);
+
+    var aColor = gl.getAttribLocation(shaderProgram, `aColor`);
+    gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, 5*Float32Array.BYTES_PER_ELEMENT, 2*Float32Array.BYTES_PER_ELEMENT);
     gl.enableVertexAttribArray(aColor);
 
-    // menggambar
-    var speedRaw = 1;
-    var speed = speedRaw/600;
-    var change = 0;
-    var uChange = gl.getUniformLocation(shaderProgram, "uChange");
-    function render() {
-        if(change >= 0.5 || change <= -0.5) speed = -speed;
-        change += speed;
-        gl.uniform1f(uChange, change);
+    let change = 0;
+    let speed = 0.0094;
 
-        gl.clearColor(1.0, 1.0, 1.0, 1.0);
+    function drawScene() {
+        if(change >= 0.4 || change <= -0.4) speed = -speed;
+        change += speed;
+
+        gl.useProgram(shaderProgram);
+
+        const leftObject = [
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, 0.0,
+            0.0, 0.0, 0.0, 1.0,
+        ]
+        
+        const rightObject = [
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, 0.0,
+            0.0, change, 0.0, 1.0,
+        ]
+
+        gl.clearColor(0.0, 0.0, 0.0, 1);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
-        gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
-        // setInterval(render, 1000/60); //60fps
+        const u_matrix = gl.getUniformLocation(shaderProgram, 'u_matrix');
+        gl.uniformMatrix4fv(u_matrix, false, objekKiri);
+    
+        gl.drawArrays(gl.TRIANGLES, 0, (kiri.length/5));
+        
+        gl.uniformMatrix4fv(u_matrix, false, objekKanan);
+        gl.drawArrays(gl.TRIANGLES, (kiri.length/5), (kanan.length/5));
+        requestAnimationFrame(drawScene);
     }
-    // setInterval(render, 1000/60);
-    render();
+    drawScene();
 }
