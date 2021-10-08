@@ -29,8 +29,8 @@ function leftGlass() {
     // bottom half circle
     for (var i = 90; i <= 270; i += 1) {
 
-        var j = i * Math.PI / 100;
-        var k = (i + 1) * Math.PI / 100;
+        var j = i * Math.PI / 180;
+        var k = (i + 1) * Math.PI / 180;
 
         var vertex1 = [
             Math.sin(j) * 0.125 - 0.5, // x
@@ -166,5 +166,5 @@ function leftGlass() {
         left_glass = left_glass.concat(vertex1, vertex2, vertex3);
     }
 
-    return leftGlass;
+    return left_glass;
 }

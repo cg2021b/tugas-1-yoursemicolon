@@ -20,14 +20,14 @@ function main() {
     // definisikan vertex dan fragmen shader
     // attribute merupakan variabel input ke dalam vertex shader
     var vertexShaderSource = `
-        attribute vec2 aPosition; // vektor 2 dimensi x, y
-        attribute vec3 aColor; // vektor 3 dimensi untuk rgb
-        varying vec3 vColor; // output dari vertex shader yang menjadi input di fragment shader
-        uniform float uChange; // mengubah posisi x, y disesuaikan dgn berapa banyak nilai uChange berubah
+        attribute vec2 aPosition; 
+        attribute vec3 aColor; 
+        varying vec3 vColor;
+        uniform mat4 u_matrix;
 
         void main() {
-            gl_Position = vec4(aPosition + uChange, 0.0, 1.0);
-            vColor = aColorl;
+            gl_Position = u_matrix * vec4(aPosition, 0, 1);
+            vColor = aColor;
         }
         `;
 
@@ -48,6 +48,12 @@ function main() {
 
     // compile shader
     gl.compileShader(vertexShader);
+    
+    // error message
+    if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(vertexShader));
+    }
+
     gl.compileShader(fragmentShader);
     
     // error message
@@ -105,12 +111,12 @@ function main() {
         gl.clear(gl.COLOR_BUFFER_BIT);
 
         const u_matrix = gl.getUniformLocation(shaderProgram, 'u_matrix');
-        gl.uniformMatrix4fv(u_matrix, false, objekKiri);
+        gl.uniformMatrix4fv(u_matrix, false, leftObject);
     
-        gl.drawArrays(gl.TRIANGLES, 0, (kiri.length/5));
+        gl.drawArrays(gl.TRIANGLES, 0, (left.length/5));
         
-        gl.uniformMatrix4fv(u_matrix, false, objekKanan);
-        gl.drawArrays(gl.TRIANGLES, (kiri.length/5), (kanan.length/5));
+        gl.uniformMatrix4fv(u_matrix, false, rightObject);
+        gl.drawArrays(gl.TRIANGLES, (left.length/5), (right.length/5));
         requestAnimationFrame(drawScene);
     }
     drawScene();
