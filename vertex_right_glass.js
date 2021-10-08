@@ -63,108 +63,108 @@ function rightGlass() {
     right_glass = right_glass.concat(B, C, D);
     right_glass = right_glass.concat(C, D, E);
 
-    // inner top glass
-    for (var i = 0; i <= 180; i += 1) {
+    // // inner top glass
+    // for (var i = 0; i <= 180; i += 1) {
 
-        var j = (i + 270) / 180;
-        var k = (i + 271) / 180;
+    //     var j = (i + 270) / 180;
+    //     var k = (i + 271) / 180;
 
-        var vertex1 = [
-            Math.sin(j) * 0.2 + 0.5, // x
-            Math.cos(j) * 0.2 + 0.4, // y
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex1 = [
+    //         Math.sin(j) * 0.2 + 0.5, // x
+    //         Math.cos(j) * 0.2 + 0.4, // y
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        var vertex2 = [
-            0.5, 0.4, // x, y
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex2 = [
+    //         0.5, 0.4, // x, y
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        var vertex3 = [
-            Math.sin(k) * 0.2 + 0.5, // x
-            Math.cos(k) * 0.2 + 0.4, // y 
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex3 = [
+    //         Math.sin(k) * 0.2 + 0.5, // x
+    //         Math.cos(k) * 0.2 + 0.4, // y 
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        right_glass = right_glass.concat(vertex1, vertex2, vertex3);
-    }
+    //     right_glass = right_glass.concat(vertex1, vertex2, vertex3);
+    // }
 
 
-    for (var i = 90; i <= 360; i += 1) {
+    // for (var i = 90; i <= 360; i += 1) {
 
-        var j = (i + 270) / 180;
-        var k = (i + 271) / 180;
+    //     var j = (i + 270) / 180;
+    //     var k = (i + 271) / 180;
 
-        var vertex1 = [
-            Math.sin(j) * 0.165 - 0.5, // x
-            Math.cos(j) * 0.2 + 0.4, // y
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex1 = [
+    //         Math.sin(j) * 0.165 - 0.5, // x
+    //         Math.cos(j) * 0.2 + 0.4, // y
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        var vertex2 = [
-            0.5, 0.4, // x, y
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex2 = [
+    //         0.5, 0.4, // x, y
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        var vertex3 = [
-            Math.sin(k) * 0.165 - 0.5, // x
-            Math.cos(k) * 0.2 + 0.4, // y 
-            0.78, 0.78, 0.78 // color
-        ];
+    //     var vertex3 = [
+    //         Math.sin(k) * 0.165 - 0.5, // x
+    //         Math.cos(k) * 0.2 + 0.4, // y 
+    //         0.78, 0.78, 0.78 // color
+    //     ];
 
-        right_glass = right_glass.concat(vertex1, vertex2, vertex3);
-    }
+    //     right_glass = right_glass.concat(vertex1, vertex2, vertex3);
+    // }
 
-    // inner bottom glass
-    for (var i = 90; i <= 270; i += 1) {
+    // // inner bottom glass
+    // for (var i = 90; i <= 270; i += 1) {
 
-        var j = (i + 180) / 180;
-        var k = (i + 1 + 180) / 180;
+    //     var j = (i + 180) / 180;
+    //     var k = (i + 1 + 180) / 180;
 
-        var vertex1 = [
-            Math.sin(j) * 0.125 - 0.5, // x
-            Math.cos(j) * 0.1 - 0.5, // y
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex1 = [
+    //         Math.sin(j) * 0.125 - 0.5, // x
+    //         Math.cos(j) * 0.1 - 0.5, // y
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        var vertex2 = [
-            -0.5, -0.5, // x, y
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex2 = [
+    //         -0.5, -0.5, // x, y
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        var vertex3 = [
-            Math.sin(k) * 0.125 - 0.5, // x
-            Math.cos(k) * 0.1 - 0.5, // y 
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex3 = [
+    //         Math.sin(k) * 0.125 - 0.5, // x
+    //         Math.cos(k) * 0.1 - 0.5, // y 
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        right_glass = right_glass.concat(vertex1, vertex2, vertex3);
-    }
+    //     right_glass = right_glass.concat(vertex1, vertex2, vertex3);
+    // }
 
-    for (var i = 180; i <= 450; i += 1) {
+    // for (var i = 180; i <= 450; i += 1) {
 
-        var j = (i + 180) / 180;
-        var k = (i + 1 + 180) / 180;
+    //     var j = (i + 180) / 180;
+    //     var k = (i + 1 + 180) / 180;
 
-        var vertex1 = [
-            Math.sin(j) * 0.125 - 0.5, // x
-            Math.cos(j) * 0.1 - 0.5, // y
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex1 = [
+    //         Math.sin(j) * 0.125 - 0.5, // x
+    //         Math.cos(j) * 0.1 - 0.5, // y
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        var vertex2 = [
-            -0.5, -0.5, // x, y
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex2 = [
+    //         -0.5, -0.5, // x, y
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        var vertex3 = [
-            Math.sin(k) * 0.125 - 0.5, // x
-            Math.cos(k) * 0.1 - 0.5, // y 
-            0.16, 0.62, 0.96 // color
-        ];
+    //     var vertex3 = [
+    //         Math.sin(k) * 0.125 - 0.5, // x
+    //         Math.cos(k) * 0.1 - 0.5, // y 
+    //         0.16, 0.62, 0.96 // color
+    //     ];
 
-        right_glass = right_glass.concat(vertex1, vertex2, vertex3);
-    }
+    //     right_glass = right_glass.concat(vertex1, vertex2, vertex3);
+    // }
 
     return right_glass;
 }
