@@ -18,7 +18,7 @@ canvas {
     border-radius: 5px;
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
-    background-image: linear-gradient(black, black), linear-gradient(#FFAFBD, #ED4264);
+    /* background-image: linear-gradient(black, black), linear-gradient(#FFAFBD, #ED4264); */
 }
 
 h1 {
