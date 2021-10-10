@@ -1,0 +1,16 @@
+.select-box {
+    margin-top: 20px;
+    text-align: center;
+    border:1px solid black;
+    width: auto;
+    height: 100px;
+}
+
+.select {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
