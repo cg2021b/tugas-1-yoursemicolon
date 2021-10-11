@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Document</title>
-    <script src="js/three.min.js"></script>
-</head>
-
-<body>
-
-</body>
-
-</html>
-
-
-<script>
-    let scene, camera, renderer;
+let scene, camera, renderer;
 
     // set up the environment - 
     // initiallize scene, camera, objects and renderer
@@ -43,4 +27,3 @@
     ///////////////////////////////////////////////
     init();
     mainLoop();
-</script>
