@@ -16,7 +16,7 @@ let objects;
 let defineObject = function () {
     cylinder = new THREE.Mesh(
         new THREE.CylinderGeometry(2.1, 2.1, 4.0, 36),
-        new THREE.MeshLambertMaterial({
+        new THREE.MeshPhongMaterial({
             color: 0x49ef4,
             wireframe: true,
         })
@@ -24,9 +24,11 @@ let defineObject = function () {
     cylinder.position.x = 0;
 
     torus = new THREE.Mesh(
-        new THREE.TorusGeometry(2.1, 0.9, 8, 24),
-        new THREE.MeshLambertMaterial({
-            color: 'lavender'
+        new THREE.TorusGeometry(2.1, 0.9, 8, 50),
+        new THREE.MeshPhongMaterial({
+            color: 0Xaf62ff, 
+            shininess: 100, 
+            side: THREE.DoubleSide
         })
     );
     torus.position.x = -10;
@@ -34,8 +36,11 @@ let defineObject = function () {
 
     torusK = new THREE.Mesh(
         new THREE.TorusKnotGeometry(2, 0.7, 81, 23, 2, 3),
-        new THREE.MeshNormalMaterial()
+        new THREE.MeshToonMaterial({
+            color: 0x49ef4,
+        })
     );
+
     torusK.position.x = 10;
     torusK.position.y = 4;
 
